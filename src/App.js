@@ -36,6 +36,17 @@ function App() {
 		setCards(cards);
 	}
 
+	function handleClick(e) {
+		if (clickedCards.includes(e.target.innerText)) {
+			setScore(0);
+			setClickedCards([]);
+		} else {
+			setScore(score + 1);
+			setClickedCards([...clickedCards, e.target.innerText]);
+		}
+		shuffle();
+	}
+
 	const list = cards.map((card, index) => {
 		return (
 			<div className={styles.card} key={index}>
@@ -46,7 +57,9 @@ function App() {
 
 	return (
 		<div className={styles.app}>
-			<div className={styles.cards}>{list}</div>
+			<div className={styles.cards} onClick={handleClick}>
+				{list}
+			</div>
 		</div>
 	);
 }
