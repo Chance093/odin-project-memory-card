@@ -16,6 +16,10 @@ function App() {
 		'k',
 		'l',
 	]);
+	const [score, setScore] = useState(0);
+	const [highScore, setHighScore] = useState(0);
+	const [isGameWon, setIsGameWon] = useState(false);
+	const [clickedCards, setClickedCards] = useState([]);
 
 	function shuffle() {
 		let currentIndex = cards.length,
