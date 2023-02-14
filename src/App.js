@@ -36,7 +36,19 @@ function App() {
 		setCards(cards);
 	}
 
-	return <div className={styles.app}>Hello World</div>;
+	const list = cards.map((card, index) => {
+		return (
+			<div className={styles.card} key={index}>
+				{card}
+			</div>
+		);
+	});
+
+	return (
+		<div className={styles.app}>
+			<div className={styles.cards}>{list}</div>
+		</div>
+	);
 }
 
 export default App;
