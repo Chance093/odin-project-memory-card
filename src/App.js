@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 
 function App() {
@@ -20,6 +20,12 @@ function App() {
 	const [highScore, setHighScore] = useState(0);
 	const [isGameWon, setIsGameWon] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
+
+	useEffect(() => {
+		if (score > highScore) setHighScore(score);
+
+		if (score === 12) setIsGameWon(true);
+	}, [score, highScore]);
 
 	function shuffle() {
 		let currentIndex = cards.length,
