@@ -5,20 +5,8 @@ import GameWon from './components/GameWon';
 import styles from './App.module.css';
 
 function App() {
-	const [cards, setCards] = useState([
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
-		'g',
-		'h',
-		'i',
-		'j',
-		'k',
-		'l',
-	]);
+	const arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
+	const [cards, setCards] = useState(shuffle(arr));
 	const [score, setScore] = useState(0);
 	const [highScore, setHighScore] = useState(0);
 	const [isGameWon, setIsGameWon] = useState(false);
@@ -28,21 +16,23 @@ function App() {
 		if (score > highScore) setHighScore(score);
 
 		if (score === 12) setIsGameWon(true);
-	}, [score, highScore]);
 
-	function shuffle() {
-		let currentIndex = cards.length,
+		setCards(shuffle(cards));
+	}, [score, highScore, cards]);
+
+	function shuffle(arr) {
+		let currentIndex = arr.length,
 			temporaryValue,
 			randomIndex;
 
 		while (0 !== currentIndex) {
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			currentIndex -= 1;
-			temporaryValue = cards[currentIndex];
-			cards[currentIndex] = cards[randomIndex];
-			cards[randomIndex] = temporaryValue;
+			temporaryValue = arr[currentIndex];
+			arr[currentIndex] = arr[randomIndex];
+			arr[randomIndex] = temporaryValue;
 		}
-		setCards(cards);
+		return arr;
 	}
 
 	function handleClick(e) {
@@ -53,7 +43,6 @@ function App() {
 			setScore(score + 1);
 			setClickedCards([...clickedCards, e.target.innerText]);
 		}
-		shuffle();
 	}
 
 	function resetGame() {
