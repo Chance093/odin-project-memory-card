@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cards from './components/Cards';
+import Header from './components/Header';
 import styles from './App.module.css';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
 
 	return (
 		<div className={styles.app}>
+			<Header score={score} highScore={highScore} />
 			<Cards handleClick={handleClick} cards={cards} />
 		</div>
 	);
