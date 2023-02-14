@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Cards from './components/Cards';
 import styles from './App.module.css';
 
 function App() {
@@ -53,19 +54,9 @@ function App() {
 		shuffle();
 	}
 
-	const list = cards.map((card, index) => {
-		return (
-			<div className={styles.card} key={index}>
-				{card}
-			</div>
-		);
-	});
-
 	return (
 		<div className={styles.app}>
-			<div className={styles.cards} onClick={handleClick}>
-				{list}
-			</div>
+			<Cards handleClick={handleClick} cards={cards} />
 		</div>
 	);
 }
