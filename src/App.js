@@ -64,11 +64,16 @@ function App() {
 		shuffle();
 	}
 
+	const render = isGameWon ? (
+		<GameWon resetGame={resetGame} />
+	) : (
+		<Cards handleClick={handleClick} cards={cards} />
+	);
+
 	return (
 		<div className={styles.app}>
 			<Header score={score} highScore={highScore} />
-			<Cards handleClick={handleClick} cards={cards} />
-			<GameWon resetGame={resetGame} />
+			{render}
 		</div>
 	);
 }
