@@ -64,7 +64,7 @@ function App() {
 		shuffle();
 	}
 
-	const render = isGameWon ? (
+	const conditionalRender = isGameWon ? (
 		<GameWon resetGame={resetGame} />
 	) : (
 		<Cards handleClick={handleClick} cards={cards} />
@@ -73,7 +73,7 @@ function App() {
 	return (
 		<div className={styles.app}>
 			<Header score={score} highScore={highScore} />
-			{render}
+			{conditionalRender}
 		</div>
 	);
 }
