@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-async function getPokemonURLs() {
-	const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=12');
-	const pokemonURLs = response.data.results.map((pokemon) => {
-		return pokemon.url;
+function getPokemonURLs() {
+	const idxs = [3, 6, 9, 25, 39, 68, 79, 94, 130, 133, 143, 149];
+	const pokemonUrls = [];
+	idxs.forEach((idx) => {
+		pokemonUrls.push(`https://pokeapi.co/api/v2/pokemon/${idx}`);
 	});
-	return pokemonURLs;
+	return pokemonUrls;
 }
 
 async function getPokemons() {
-	const URLs = await getPokemonURLs();
-	const promises = URLs.map((url) => {
+	const Urls = getPokemonURLs();
+	const promises = Urls.map((url) => {
 		return axios.get(url);
 	});
 	const response = await Promise.all(promises);
