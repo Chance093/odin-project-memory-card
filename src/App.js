@@ -3,10 +3,10 @@ import Cards from './components/Cards';
 import Header from './components/Header';
 import GameWon from './components/GameWon';
 import styles from './App.module.css';
+import getPokemons from './PokeAPI';
 
 function App() {
-	const arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
-	const [cards, setCards] = useState(shuffle(arr));
+	const [cards, setCards] = useState(getPokemons());
 	const [score, setScore] = useState(0);
 	const [highScore, setHighScore] = useState(0);
 	const [isGameWon, setIsGameWon] = useState(false);
@@ -16,23 +16,21 @@ function App() {
 		if (score > highScore) setHighScore(score);
 
 		if (score === 12) setIsGameWon(true);
+	}, [score, highScore]);
 
-		setCards(shuffle(cards));
-	}, [score, highScore, cards]);
-
-	function shuffle(arr) {
-		let currentIndex = arr.length,
+	function shuffle() {
+		let currentIndex = cards.length,
 			temporaryValue,
 			randomIndex;
 
 		while (0 !== currentIndex) {
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			currentIndex -= 1;
-			temporaryValue = arr[currentIndex];
-			arr[currentIndex] = arr[randomIndex];
-			arr[randomIndex] = temporaryValue;
+			temporaryValue = cards[currentIndex];
+			cards[currentIndex] = cards[randomIndex];
+			cards[randomIndex] = temporaryValue;
 		}
-		return arr;
+		setCards(cards);
 	}
 
 	function handleClick(e) {
@@ -43,6 +41,7 @@ function App() {
 			setScore(score + 1);
 			setClickedCards([...clickedCards, e.target.innerText]);
 		}
+		shuffle();
 	}
 
 	function resetGame() {
