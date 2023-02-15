@@ -54,6 +54,10 @@
 	background-color: white;
 }
 
+.card:hover {
+	font-weight: bold;
+}
+
 .gameWon {
 	display: flex;
 	flex-direction: column;
