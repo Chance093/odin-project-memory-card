@@ -6,11 +6,19 @@ import styles from './App.module.css';
 import getPokemons from './PokeAPI';
 
 function App() {
-	const [cards, setCards] = useState(getPokemons());
+	const [cards, setCards] = useState([]);
 	const [score, setScore] = useState(0);
 	const [highScore, setHighScore] = useState(0);
 	const [isGameWon, setIsGameWon] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
+
+	useEffect(() => {
+		async function fetchData() {
+			const pokemons = await getPokemons();
+			setCards(pokemons);
+		}
+		fetchData();
+	}, []);
 
 	useEffect(() => {
 		if (score > highScore) setHighScore(score);

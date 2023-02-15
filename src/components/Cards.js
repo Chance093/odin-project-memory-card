@@ -1,10 +1,10 @@
 import styles from '../App.module.css';
 
 function Cards({ handleClick, cards }) {
-	const list = cards.map((card, index) => {
+	const list = cards.map((card) => {
 		return (
-			<div className={styles.card} key={index}>
-				{card}
+			<div className={styles.card} key={card.id}>
+				{card.name}
 			</div>
 		);
 	});
