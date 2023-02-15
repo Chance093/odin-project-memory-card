@@ -2,8 +2,8 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
 	font-family: 'Montserrat', sans-serif;
+	background-color: rgb(32, 36, 52);
 }
 
 .header {
@@ -34,9 +34,11 @@
 
 .cards {
 	display: grid;
+	flex: 1;
 	grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
 	gap: 10px;
 	align-self: center;
+	padding: 3rem;
 }
 
 .card {
@@ -48,4 +50,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
+	background-color: white;
 }
