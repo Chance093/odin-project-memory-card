@@ -42,7 +42,7 @@ function App() {
 	}
 
 	function handleClick(e) {
-		if (clickedCards.includes(e.target.innerText)) {
+		if (clickedCards.includes(e.target.alt)) {
 			setScore(0);
 			setClickedCards([]);
 		} else {

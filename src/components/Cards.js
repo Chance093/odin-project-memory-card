@@ -5,7 +5,7 @@ function Cards({ handleClick, cards }) {
 		return (
 			<div className={styles.card} key={card.id}>
 				<img src={card.sprites.front_default} alt={card.name} />
-				{card.name}
+				{card.name.charAt(0).toUpperCase() + card.name.slice(1)}
 			</div>
 		);
 	});
