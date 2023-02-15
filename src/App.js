@@ -3,7 +3,7 @@ import Cards from './components/Cards';
 import Header from './components/Header';
 import GameWon from './components/GameWon';
 import styles from './App.module.css';
-import getPokemons from './PokeAPI';
+import fetchPokemon from './PokeAPI';
 
 function App() {
 	const [cards, setCards] = useState([]);
@@ -14,7 +14,7 @@ function App() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const pokemons = await getPokemons();
+			const pokemons = await fetchPokemon();
 			setCards(pokemons);
 		}
 		fetchData();

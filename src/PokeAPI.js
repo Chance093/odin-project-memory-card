@@ -9,7 +9,7 @@ function getPokemonURLs() {
 	return pokemonUrls;
 }
 
-async function getPokemons() {
+async function fetchPokemon() {
 	const Urls = getPokemonURLs();
 	const promises = Urls.map((url) => {
 		return axios.get(url);
@@ -21,4 +21,4 @@ async function getPokemons() {
 	return data;
 }
 
-export default getPokemons;
+export default fetchPokemon;
