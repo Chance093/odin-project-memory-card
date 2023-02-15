@@ -38,7 +38,7 @@
 	grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
 	gap: 10px;
 	align-self: center;
-	padding: 3rem;
+	padding: 2rem;
 }
 
 .card {
@@ -52,4 +52,23 @@
 	align-items: center;
 	cursor: pointer;
 	background-color: white;
+}
+
+.gameWon {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	color: white;
+	font-size: 3rem;
+}
+
+.restartButton {
+	height: 4rem;
+	width: 12rem;
+	border-radius: 12px;
+	font-size: 2rem;
+	cursor: pointer;
 }

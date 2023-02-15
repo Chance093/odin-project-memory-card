@@ -5,7 +5,7 @@ function GameWon({ resetGame }) {
 		<div className={styles.gameWon}>
 			<p>You Won!</p>
 			<button className={styles.restartButton} onClick={resetGame}>
-				Restart
+				Try Again!
 			</button>
 		</div>
 	);
