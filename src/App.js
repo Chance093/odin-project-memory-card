@@ -47,7 +47,7 @@ function App() {
 			setClickedCards([]);
 		} else {
 			setScore(score + 1);
-			setClickedCards([...clickedCards, e.target.innerText]);
+			setClickedCards([...clickedCards, e.target.alt]);
 		}
 		shuffle();
 	}
